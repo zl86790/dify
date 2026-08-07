@@ -6,8 +6,8 @@ from core.llm_generator.output_parser.errors import OutputParserError
 def parse_json_markdown(json_string: str):
     # Get json from the backticks/braces
     json_string = json_string.strip()
-    starts = ["```json", "```", "``", "`", "{", "["]
-    ends = ["```", "``", "`", "}", "]"]
+    starts = ["{", "[", "```json", "```", "``", "`"]
+    ends = ["}", "]", "```", "``", "`"]
     end_index = -1
     start_index = 0
     parsed: dict = {}

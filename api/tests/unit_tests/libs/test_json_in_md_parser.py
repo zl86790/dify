@@ -30,6 +30,11 @@ def test_parse_json_markdown_single_backticks():
     assert parse_json_markdown(src) == {"x": True}
 
 
+def test_parse_json_markdown_backtick_inside_string_value():
+    src = '{"code": "return `x`"}'
+    assert parse_json_markdown(src) == {"code": "return `x`"}
+
+
 def test_parse_json_markdown_braces_only():
     src = '  {\n  \t"ok": "yes"\n}  '
     assert parse_json_markdown(src) == {"ok": "yes"}
